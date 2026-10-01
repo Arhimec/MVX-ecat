@@ -16,6 +16,11 @@ unit_status: "fully-operational"
 | `001-ecompass-chart-ui` | `v1.2.0` | ✅ Verified | ✅ Verified | ✅ Verified | ✅ Active | **FULLY OPERATIONAL** |
 | `001-herotags-resolution` | `v1.3.0` | ✅ Verified | ✅ Verified | ✅ Verified | ✅ Active | **FULLY OPERATIONAL** |
 
+## Repository & Remote
+- **GitHub Repository**: [https://github.com/Arhimec/MVX-ecat](https://github.com/Arhimec/MVX-ecat)
+- **Default Branch**: `main`
+- **Sync Status**: Up to date with `origin/main`
+
 ## Artifacts & Documentation
 - **Build Artifact**: [`build.md`](file:///Users/vladimirvechiu/Antigravity/MVX-ecat/memory-bank/intents/004-whale-herotags/units/001-herotags-resolution/deployment/build.md)
 - **Deployment History**: [`history.md`](file:///Users/vladimirvechiu/Antigravity/MVX-ecat/memory-bank/intents/004-whale-herotags/units/001-herotags-resolution/deployment/history.md)
