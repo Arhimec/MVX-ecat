@@ -1,0 +1,2694 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>$ECAT — European Cat on MultiversX</title>
+  <meta name="description" content="ECAT is a neon-dark MultiversX token landing page with interactive tokenomics, roadmap milestones, and a dark cosmic brand aesthetic." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root,
+    [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+      --space-32: 8rem;
+      
+      --color-bg: #eef7f5;
+      --color-surface: #f8fffd;
+      --color-surface-2: #ffffff;
+      --color-surface-offset: #ddecea;
+      --color-border: rgba(9, 16, 30, 0.14);
+      --color-divider: rgba(9, 16, 30, 0.1);
+      --color-text: #071019;
+      --color-text-muted: #48606d;
+      --color-text-faint: #708593;
+      --color-text-inverse: #f7fffd;
+      --color-primary: #00cda4;
+      --color-primary-2: #1992d4;
+      
+      /* Theme specific functional variables */
+      --color-primary-rgb: 0, 205, 164;
+      --color-primary-2-rgb: 25, 146, 212;
+      --color-bg-faint: rgba(9, 16, 30, 0.04);
+      --bg-gradient: linear-gradient(180deg, #f0f7f5 0%, #eef7f5 30%, #e0ecea 100%);
+      --surface-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(245, 250, 249, 0.95));
+      --header-bg: rgba(238, 247, 245, 0.85);
+      --donut-center-fill: #f8fffd;
+      --nav-dropdown-bg: rgba(248, 255, 253, 0.95);
+      
+      --radius-sm: 0.5rem;
+      --radius-md: 0.875rem;
+      --radius-lg: 1.25rem;
+      --radius-xl: 1.75rem;
+      --radius-full: 9999px;
+      --shadow-sm: 0 10px 30px rgba(4, 16, 26, 0.08);
+      --shadow-md: 0 18px 45px rgba(4, 16, 26, 0.14);
+      --font-display: 'Outfit', 'Space Grotesk', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --content: 1200px;
+      --header-height: 74px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #05070f;
+      --color-surface: #09101e;
+      --color-surface-2: #0c1423;
+      --color-surface-offset: #101b2f;
+      --color-border: rgba(35, 247, 221, 0.14);
+      --color-divider: rgba(255, 255, 255, 0.08);
+      --color-text: #edfefd;
+      --color-text-muted: #9ab5c7;
+      --color-text-faint: #6f8698;
+      --color-text-inverse: #02150f;
+      --color-primary: #23f7dd;
+      --color-primary-2: #1992d4;
+      
+      /* Theme specific functional variables */
+      --color-primary-rgb: 35, 247, 221;
+      --color-primary-2-rgb: 25, 146, 212;
+      --color-bg-faint: rgba(255, 255, 255, 0.03);
+      --bg-gradient: linear-gradient(180deg, #03050b 0%, #05070f 30%, #070d18 100%);
+      --surface-gradient: linear-gradient(180deg, rgba(12, 20, 35, 0.92), rgba(8, 13, 24, 0.94));
+      --header-bg: rgba(5, 7, 15, 0.7);
+      --donut-center-fill: rgba(5, 7, 15, 0.95);
+      --nav-dropdown-bg: rgba(9, 16, 30, 0.95);
+      
+      --shadow-sm: 0 16px 38px rgba(0, 0, 0, 0.28);
+      --shadow-md: 0 28px 70px rgba(0, 0, 0, 0.42);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-text);
+      background:
+        radial-gradient(circle at top left, rgba(var(--color-primary-rgb), 0.12), transparent 26%),
+        radial-gradient(circle at top right, rgba(var(--color-primary-2-rgb), 0.14), transparent 24%),
+        var(--bg-gradient);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+    button, input, select { font: inherit; color: inherit; }
+    button { cursor: pointer; border: 0; }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--content));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav-shell {
+      min-height: var(--header-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-family: var(--font-display);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-logo {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.9rem;
+      object-fit: cover;
+      border: 1px solid rgba(var(--color-primary-rgb), 0.3);
+      box-shadow: 0 0 24px rgba(var(--color-primary-rgb), 0.18);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-menu-toggle,
+    .theme-toggle,
+    .ghost-button,
+    .legend-row {
+      min-height: 44px;
+      border-radius: var(--radius-full);
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+    }
+
+    .nav-menu-toggle,
+    .theme-toggle {
+      width: 44px;
+      display: inline-grid;
+      place-items: center;
+      background: var(--color-bg-faint);
+      border: 1px solid var(--color-border);
+    }
+
+    .desktop-nav {
+      position: fixed;
+      inset: var(--header-height) 1rem auto 1rem;
+      padding: 1rem;
+      border-radius: 1.25rem;
+      background: var(--nav-dropdown-bg);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-md);
+      display: none;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .desktop-nav.open { display: flex; }
+
+    .desktop-nav a {
+      padding: 0.85rem 1rem;
+      border-radius: 1rem;
+      color: var(--color-text-muted);
+      background: var(--color-bg-faint);
+    }
+
+    .desktop-nav a:hover,
+    .desktop-nav a:focus-visible {
+      color: var(--color-text);
+      background: rgba(var(--color-primary-rgb), 0.08);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.55rem 0.95rem;
+      border-radius: var(--radius-full);
+      background: rgba(var(--color-primary-rgb), 0.08);
+      border: 1px solid rgba(var(--color-primary-rgb), 0.16);
+      color: var(--color-primary);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: clamp(2rem, 4vw, 4rem) 0 var(--space-16);
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: var(--space-8);
+      align-items: start;
+    }
+
+    .hero-copy,
+    .metric-card,
+    .section-shell {
+      background: var(--surface-gradient);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-copy {
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      border-radius: var(--radius-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -30% 20%;
+      height: 240px;
+      background: radial-gradient(circle, rgba(var(--color-primary-rgb), 0.16), transparent 65%);
+      filter: blur(18px);
+      pointer-events: none;
+    }
+
+    /* Hero Layout CSS */
+    .hero-layout {
+      display: grid;
+      gap: var(--space-6);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-visual {
+      display: flex;
+    }
+
+    .hero-logo {
+      width: clamp(100px, 25vw, 180px);
+      aspect-ratio: 1;
+      height: auto;
+      border-radius: 1.75rem;
+      object-fit: cover;
+      border: 2px solid rgba(var(--color-primary-rgb), 0.4);
+      box-shadow: 0 0 40px rgba(var(--color-primary-rgb), 0.25);
+    }
+
+    @media (max-width: 979px) {
+      .hero-visual {
+        order: -1;
+      }
+    }
+
+    h1, h2, h3 { margin: 0; line-height: 1.08; }
+
+    h1 {
+      margin-top: var(--space-5);
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 8vw, 5.8rem);
+      letter-spacing: -0.04em;
+      max-width: 10ch;
+    }
+
+    .hero-copy p {
+      margin: var(--space-4) 0 0;
+      color: var(--color-text-muted);
+      max-width: 58ch;
+    }
+
+    .hero-stats {
+      margin-top: var(--space-6);
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3);
+    }
+
+    .metric-card {
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent, rgba(var(--color-primary-rgb), 0.05));
+      pointer-events: none;
+    }
+
+    .metric-card span {
+      display: block;
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .metric-card strong {
+      margin-top: 0.35rem;
+      display: block;
+      font-size: var(--text-lg);
+      font-family: var(--font-display);
+    }
+
+    .hero-buttons {
+      margin-top: var(--space-6);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .ghost-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      background: var(--color-bg-faint);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .ghost-button:hover,
+    .nav-menu-toggle:hover,
+    .theme-toggle:hover,
+    .legend-row:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 0 1px rgba(var(--color-primary-rgb), 0.2), 0 14px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .sub-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    .section-intro small {
+      display: block;
+      color: var(--color-text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: var(--text-xs);
+      margin-bottom: 0.35rem;
+    }
+
+    .section-intro h2 {
+      font-size: clamp(1.65rem, 3vw, 2.4rem);
+      font-family: var(--font-display);
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+    }
+
+    .section {
+      padding: 0 0 var(--space-16);
+    }
+
+    .section-shell {
+      border-radius: calc(var(--radius-xl) + 0.2rem);
+      padding: clamp(1rem, 3vw, 2rem);
+    }
+
+    /* Core Native Layout Grids */
+    .tokenomics-grid {
+      margin-top: var(--space-6);
+      display: grid;
+      gap: var(--space-4);
+      align-items: start;
+    }
+    
+    .timeline, .ecosystem-grid {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    #liveTokenGrid {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .donut-wrap {
+      display: grid;
+      place-items: center;
+      padding: 0.5rem 0 1rem;
+    }
+
+    .donut-chart {
+      width: min(100%, 340px);
+      aspect-ratio: 1;
+      filter: drop-shadow(0 0 30px rgba(var(--color-primary-rgb), 0.14));
+    }
+
+    .donut-chart circle.track {
+      fill: none;
+      stroke: var(--color-divider);
+      stroke-width: 26;
+    }
+
+    .donut-segment {
+      fill: none;
+      stroke-width: 26;
+      stroke-linecap: butt;
+      cursor: pointer;
+      transition: transform var(--transition), filter var(--transition), opacity var(--transition);
+      transform-origin: 50% 50%;
+    }
+
+    .donut-segment:hover,
+    .donut-segment.active {
+      transform: scale(1.02);
+      filter: brightness(1.14);
+    }
+
+    .donut-center {
+      fill: rgba(5, 7, 15, 0.95);
+      stroke: rgba(35, 247, 221, 0.15);
+      stroke-width: 1;
+    }
+
+    .legend-list {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .legend-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0.75rem;
+      align-items: center;
+      padding: 0.8rem 0.85rem;
+      background: var(--color-bg-faint);
+      border: 1px solid var(--color-divider);
+      text-align: left;
+    }
+
+    .legend-row.active {
+      border-color: rgba(var(--color-primary-rgb), 0.24);
+      background: rgba(var(--color-primary-rgb), 0.06);
+    }
+
+    .legend-row span {
+      display: block;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.04em;
+    }
+
+    .swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      box-shadow: 0 0 12px currentColor;
+    }
+
+    /* Floating Tooltip CSS */
+    .slice-tooltip {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0;
+      width: max-content;
+      max-width: 320px;
+      padding: 1.25rem;
+      border-radius: var(--radius-lg);
+      background: var(--nav-dropdown-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-md);
+      transition: opacity 0.15s ease;
+      will-change: transform;
+    }
+
+    .phase {
+      position: relative;
+      padding: 1rem 1rem 1rem 1.2rem;
+      border-radius: 1rem;
+      background: var(--color-bg-faint);
+      border: 1px solid var(--color-divider);
+      overflow: hidden;
+    }
+
+    .phase::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 1rem;
+      bottom: 1rem;
+      width: 4px;
+      border-radius: 999px;
+      background: var(--phase-color, rgba(var(--color-primary-rgb), 0.45));
+      box-shadow: 0 0 18px var(--phase-color, rgba(var(--color-primary-rgb), 0.45));
+    }
+
+    .phase-head {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .phase-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .phase span.phase-label {
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.04em;
+      display: block;
+    }
+
+    .phase strong {
+      display: block;
+      font-size: var(--text-base);
+      line-height: 1.3;
+    }
+
+    .roadmap-status {
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-full);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid currentColor;
+      white-space: nowrap;
+    }
+
+    .status-completed { color: var(--color-primary); }
+    .status-progress { color: var(--color-primary-2); }
+    .status-upcoming { color: var(--color-text-faint); }
+
+    .phase ul {
+      margin: 0.75rem 0 0;
+      padding: 0 0 0 1rem;
+      color: var(--color-text-muted);
+    }
+
+    .phase li + li { margin-top: 0.4rem; }
+
+    .section-note {
+      margin-top: var(--space-4);
+      padding: 1rem;
+      border-radius: 1rem;
+      font-family: var(--font-mono);
+      background: rgba(var(--color-primary-2-rgb), 0.1);
+      border: 1px solid rgba(var(--color-primary-2-rgb), 0.22);
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .properties-main-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      align-content: start;
+    }
+
+    .property-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 82px;
+      padding: 0.85rem 1rem;
+      border-radius: 1rem;
+      background: var(--color-bg-faint);
+      border: 1px solid var(--color-divider);
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .property-card span.prop-label,
+    .property-card > span:first-child {
+      display: block;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .property-card strong {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+      color: var(--color-text);
+      font-size: var(--text-base);
+      line-height: 1.35;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .stat-highlight-usd {
+      color: var(--color-primary);
+      font-size: clamp(1.05rem, 0.95rem + 0.35vw, 1.25rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .stat-highlight-egld {
+      color: var(--color-primary-2);
+      font-size: clamp(0.95rem, 0.85rem + 0.25vw, 1.1rem);
+      font-weight: 700;
+    }
+
+    .stat-unit {
+      font-size: 0.75em;
+      font-weight: 600;
+      opacity: 0.8;
+      letter-spacing: 0.03em;
+    }
+    
+    .property-card p {
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      line-height: 1.5;
+      margin: 0.5rem 0 0 0;
+    }
+
+    .property-card strong.flag-list,
+    .flag-list {
+      display: flex;
+      flex-wrap: wrap;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .flag-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+      background: rgba(var(--color-primary-rgb), 0.08);
+      color: var(--color-primary);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .flag-chip.off {
+      border-color: var(--color-divider);
+      background: var(--color-bg-faint);
+      color: var(--color-text-muted);
+    }
+
+    .footer-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.08), rgba(var(--color-primary-2-rgb), 0.08));
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      display: grid;
+      gap: 1rem;
+    }
+
+    .footer-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .desktop-only {
+      display: none !important;
+    }
+
+    /* Price Chart Styling & Timeframe Toolbar */
+    .chart-container {
+      margin-top: var(--space-6);
+      background: var(--color-bg-faint);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .chart-header-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .chart-price-display {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .chart-toolbar {
+      display: flex;
+      gap: 0.4rem;
+      background: var(--color-surface);
+      padding: 0.25rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+    }
+
+    .timeframe-btn {
+      padding: 0.35rem 0.75rem;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      border-radius: var(--radius-full);
+      background: transparent;
+      color: var(--color-text-muted);
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .timeframe-btn.active,
+    .timeframe-btn:hover {
+      background: rgba(var(--color-primary-rgb), 0.12);
+      color: var(--color-primary);
+    }
+
+    .price-chart-svg {
+      width: 100%;
+      height: 160px;
+      overflow: visible;
+      margin-top: 1rem;
+    }
+
+    .chart-line {
+      fill: none;
+      stroke: var(--color-primary);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 8px rgba(var(--color-primary-rgb), 0.4));
+    }
+
+    .chart-area {
+      fill: url(#chartGradient);
+      opacity: 0.25;
+    }
+
+    /* Live status pill and pulse animation */
+    .live-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-full);
+      background: rgba(var(--color-primary-rgb), 0.08);
+      border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--color-primary);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--color-primary);
+      box-shadow: 0 0 10px var(--color-primary);
+      animation: pulse-glow 2s infinite;
+    }
+
+    @keyframes pulse-glow {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb), 0.7); }
+      70% { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(var(--color-primary-rgb), 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb), 0); }
+    }
+
+    .refresh-btn {
+      background: transparent;
+      border: 0;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      padding: 0.2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: color var(--transition), transform var(--transition);
+    }
+
+    .refresh-btn:hover {
+      color: var(--color-primary);
+    }
+
+    .refresh-btn.spinning svg {
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Trend and Change Badges */
+    .change-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      font-family: var(--font-mono);
+    }
+
+    .change-badge.positive {
+      background: rgba(0, 230, 118, 0.12);
+      color: #00E676;
+      border: 1px solid rgba(0, 230, 118, 0.3);
+    }
+
+    .change-badge.negative {
+      background: rgba(255, 82, 82, 0.12);
+      color: #FF5252;
+      border: 1px solid rgba(255, 82, 82, 0.3);
+    }
+
+    .change-badge.neutral {
+      background: var(--color-bg-faint);
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border);
+    }
+
+    .price-sub-display {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      margin-top: 0.35rem;
+    }
+
+    .price-flash {
+      animation: priceGlow 1.2s ease-out;
+    }
+
+    @keyframes priceGlow {
+      0% { color: #23f7dd; text-shadow: 0 0 14px rgba(35, 247, 221, 0.7); }
+      100% { color: inherit; text-shadow: none; }
+    }
+
+    /* Scroll Animation Keyframes & Classes */
+    @keyframes fadeUpScroll {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal-on-scroll {
+      opacity: 0;
+      will-change: opacity, transform;
+    }
+
+    .reveal-on-scroll.is-visible {
+      animation: fadeUpScroll 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* ==========================================================================
+       eCompass Chart Studio Styles
+       ========================================================================== */
+    .chart-top-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .chart-mode-switcher {
+      display: inline-flex;
+      background: var(--color-surface);
+      padding: 0.3rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      gap: 0.35rem;
+    }
+
+    .chart-mode-btn {
+      background: transparent;
+      border: none;
+      color: var(--color-text-muted);
+      font-family: var(--font-heading);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all var(--transition);
+    }
+
+    .chart-mode-btn:hover {
+      color: var(--color-text);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .chart-mode-btn.active {
+      color: #070B12;
+      background: var(--color-primary);
+      box-shadow: 0 0 14px rgba(var(--color-primary-rgb), 0.4);
+    }
+
+    .ecompass-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.95rem;
+      border-radius: var(--radius-full);
+      background: rgba(var(--color-primary-rgb), 0.08);
+      border: 1px solid rgba(var(--color-primary-rgb), 0.25);
+      color: var(--color-primary);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+
+    .ecompass-link-btn:hover {
+      background: var(--color-primary);
+      color: #070B12;
+      box-shadow: 0 0 16px rgba(var(--color-primary-rgb), 0.4);
+      transform: translateY(-1px);
+    }
+
+    .chart-view-panel {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .chart-view-panel.active {
+      display: block;
+    }
+
+    .ecompass-frame-shell {
+      position: relative;
+      width: 100%;
+      height: 540px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #070B12;
+      border: 1px solid rgba(35, 247, 221, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(35, 247, 221, 0.03);
+    }
+
+    .ecompass-iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #070B12;
+      display: block;
+      color-scheme: dark;
+    }
+
+    .ecompass-skeleton {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #070B12;
+      z-index: 2;
+      transition: opacity 0.5s ease-out;
+    }
+
+    .ecompass-skeleton.loaded {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .skeleton-pulse {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1.5rem;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+    }
+
+    @media (max-width: 768px) {
+      .ecompass-frame-shell {
+        height: 420px;
+      }
+    }
+
+    /* ==========================================================================
+       Holders & Whale Leaderboard Styles
+       ========================================================================== */
+    .section-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .leaderboard-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .leaderboard-meta-info {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+    }
+
+    /* Leaderboard Table & Rows */
+    .leaderboard-table-shell {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .leaderboard-header-row {
+      display: grid;
+      grid-template-columns: 80px 1.8fr 1.2fr 1.2fr 1.6fr;
+      padding: 1rem 1.5rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid var(--color-border);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      align-items: center;
+    }
+
+    .leaderboard-body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .leaderboard-row {
+      display: grid;
+      grid-template-columns: 80px 1.8fr 1.2fr 1.2fr 1.6fr;
+      padding: 1.1rem 1.5rem;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      transition: background var(--transition);
+    }
+
+    .leaderboard-row:last-child {
+      border-bottom: none;
+    }
+
+    .leaderboard-row:hover {
+      background: rgba(var(--color-primary-rgb), 0.03);
+    }
+
+    .rank-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: var(--text-sm);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+    }
+
+    .rank-pill.rank-1 {
+      background: rgba(35, 247, 221, 0.15);
+      border-color: rgba(35, 247, 221, 0.4);
+      color: var(--color-primary);
+      box-shadow: 0 0 12px rgba(35, 247, 221, 0.3);
+    }
+
+    .rank-pill.rank-2 {
+      background: rgba(99, 102, 241, 0.15);
+      border-color: rgba(99, 102, 241, 0.4);
+      color: var(--color-primary-2);
+    }
+
+    .rank-pill.rank-3 {
+      background: rgba(168, 85, 247, 0.15);
+      border-color: rgba(168, 85, 247, 0.4);
+      color: var(--color-primary-3);
+    }
+
+    .address-wrapper {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+    }
+
+    .address-link {
+      color: var(--color-text);
+      text-decoration: none;
+      transition: color var(--transition);
+      max-width: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .address-link:hover {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+
+    .herotag-link {
+      color: var(--color-primary);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.15rem;
+      background: rgba(var(--color-primary-rgb), 0.1);
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(var(--color-primary-rgb), 0.25);
+      transition: all var(--transition);
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .herotag-link:hover {
+      color: #fff;
+      background: rgba(var(--color-primary-rgb), 0.22);
+      border-color: var(--color-primary);
+      text-decoration: none;
+      box-shadow: 0 0 12px rgba(var(--color-primary-rgb), 0.25);
+    }
+
+    .herotag-link .herotag-at {
+      color: var(--color-primary-2);
+      font-weight: 800;
+      font-size: 0.9em;
+    }
+
+    .herotag-link .herotag-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .protocol-link {
+      color: var(--color-primary-2);
+      font-weight: 600;
+      font-size: var(--text-xs);
+      letter-spacing: 0.02em;
+      background: rgba(var(--color-primary-2-rgb), 0.12);
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(var(--color-primary-2-rgb), 0.25);
+      transition: all var(--transition);
+      max-width: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .protocol-link:hover {
+      color: #fff;
+      background: rgba(var(--color-primary-2-rgb), 0.22);
+      border-color: var(--color-primary-2);
+      text-decoration: none;
+      box-shadow: 0 0 12px rgba(var(--color-primary-2-rgb), 0.25);
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: 0;
+      color: var(--color-text-faint);
+      cursor: pointer;
+      padding: 0.25rem;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+    }
+
+    .copy-btn:hover {
+      color: var(--color-primary);
+      background: rgba(var(--color-primary-rgb), 0.1);
+    }
+
+    .tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .tier-badge.whale {
+      background: rgba(35, 247, 221, 0.12);
+      color: var(--color-primary);
+      border: 1px solid rgba(35, 247, 221, 0.3);
+    }
+
+    .tier-badge.shark {
+      background: rgba(99, 102, 241, 0.12);
+      color: #818cf8;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .tier-badge.paws {
+      background: rgba(168, 85, 247, 0.12);
+      color: #c084fc;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+    }
+
+    .holder-balance {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .supply-share-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .supply-share-top {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+
+    .supply-bar-track {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+
+    .supply-bar-fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+      background: linear-gradient(90deg, var(--color-primary-2), var(--color-primary));
+      transition: width 1s ease-out;
+    }
+
+    .loading-state-row {
+      padding: 3rem 1.5rem;
+      text-align: center;
+      color: var(--color-text-faint);
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+    }
+
+    /* Global Copy Toast */
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0e1524;
+      color: var(--color-primary);
+      border: 1px solid var(--color-primary);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 12px rgba(35, 247, 221, 0.3);
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 9999;
+    }
+
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 860px) {
+      .leaderboard-header-row {
+        display: none;
+      }
+      .leaderboard-row {
+        grid-template-columns: 50px 1fr;
+        grid-template-areas:
+          "rank addr"
+          "rank tier"
+          "rank bal"
+          "rank share";
+        gap: 0.6rem;
+        padding: 1.25rem 1rem;
+      }
+      .col-rank { grid-area: rank; align-self: start; margin-top: 0.2rem; }
+      .col-address { grid-area: addr; }
+      .col-tier { grid-area: tier; }
+      .col-balance { grid-area: bal; }
+      .col-share { grid-area: share; }
+    }
+
+    @media (min-width: 760px) {
+      .hero-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 980px) {
+      .nav-menu-toggle { display: none; }
+
+      .desktop-nav {
+        position: static;
+        inset: auto;
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        box-shadow: none;
+        border: 0;
+        background: transparent;
+      }
+
+      .desktop-nav a {
+        background: transparent;
+        padding: 0.65rem 0.85rem;
+      }
+
+      .hero-layout {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: var(--space-12);
+      }
+
+      .hero-visual {
+        justify-content: center;
+        padding-right: var(--space-4);
+      }
+
+      .hero-logo {
+        width: clamp(240px, 28vw, 360px);
+        border-radius: 2.25rem;
+      }
+
+      /* Desktop Grids for Info, Community, & Roadmap */
+      #liveTokenGrid {
+        grid-template-columns: 1.5fr 1fr; 
+        gap: var(--space-6);
+        align-items: stretch;
+      }
+      
+      .timeline, .ecosystem-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      /* Desktop Tokenomics Layout */
+      .tokenomics-grid {
+        grid-template-columns: 1fr 1fr; 
+        gap: var(--space-8);
+      }
+
+      .desktop-only {
+        display: flex !important;
+      }
+      
+      .content-split-layout {
+        display: grid;
+        grid-template-columns: 0.35fr 0.65fr;
+        gap: var(--space-12);
+        align-items: start;
+      }
+      
+      .sticky-aside {
+        position: sticky;
+        top: 120px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal-on-scroll {
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Tooltip Container -->
+  <div id="sliceTooltip" class="slice-tooltip" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="#top" aria-label="ECAT home">
+        <img src="./media/ECAT_logo.jpeg" alt="ECAT Logo" class="brand-logo" />
+        <span>ECAT</span>
+      </a>
+
+      <nav class="desktop-nav" id="primaryNav" aria-label="Primary">
+        <a href="#token-properties">Token properties</a>
+        <a href="#holders-activity">Whale Leaderboard</a>
+        <a href="#tokenomics">CATonomics</a>
+        <a href="#ecosystem">Community</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#launch">Overview</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button class="nav-menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal-on-scroll">
+          
+          <div class="hero-layout">
+            <div class="hero-text">
+              <span class="pill">MultiversX · ESDT Launch Stack</span>
+              <h1>Built in Europe. Built for freedom. 🐱🇪🇺</h1>
+              <p>
+                We must keep believing that we can shape the world, not live by the rules of dictators.
+              </p>
+
+              <div class="hero-stats" aria-label="Project highlights">
+                <article class="metric-card">
+                  <span>Hard cap</span>
+                  <strong>1,000,000,000 ECAT</strong>
+                </article>
+                <article class="metric-card">
+                  <span>Standard</span>
+                  <strong>ESDT</strong>
+                </article>
+                <article class="metric-card">
+                  <span>Mint status</span>
+                  <strong>Revoked after launch</strong>
+                </article>
+                <article class="metric-card">
+                  <span>Focus</span>
+                  <strong>Cats 🐱 United</strong>
+                </article>
+              </div>
+
+              <div class="hero-buttons">
+                <a class="ghost-button" href="#token-properties">View token details</a>
+              </div>
+            </div>
+
+            <div class="hero-visual">
+              <img src="./media/ECAT_logo.jpeg" alt="ECAT Project Logo" class="hero-logo" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="token-properties">
+      <div class="container hero-copy reveal-on-scroll">
+        <div class="content-split-layout">
+          
+          <div class="sticky-aside">
+            <div class="sub-header" style="margin-bottom: var(--space-6);">
+              <h2 style="font-family: var(--font-display); font-size: clamp(1.65rem, 3vw, 2.4rem); margin: 0;">On-chain properties</h2>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; margin-top: 0.5rem;">
+                <div class="live-status-pill" id="liveStatusPill">
+                  <span class="pulse-dot"></span>
+                  <span id="networkStatus">Live Network</span>
+                  <button id="manualRefreshBtn" class="refresh-btn" type="button" title="Refresh Live Data" aria-label="Refresh live data">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                    </svg>
+                  </button>
+                </div>
+                <a class="ghost-button" href="https://explorer.multiversx.com/tokens/ECAT-4ebd0f" target="_blank" rel="noopener noreferrer">View on Explorer</a>
+              </div>
+            </div>
+          </div>
+          
+          <div id="liveTokenGrid">
+            <div class="property-card" style="text-align: center; grid-column: 1 / -1;">
+              <span>Status</span>
+              <strong>Connecting to MultiversX network...</strong>
+            </div>
+          </div>
+          
+        </div>
+
+        <!-- Dynamic Price Chart Studio Container -->
+        <div class="chart-container">
+          <!-- Chart Mode Switcher & Portal Action Toolbar -->
+          <div class="chart-top-toolbar">
+            <div class="chart-mode-switcher" role="tablist" aria-label="Chart View Mode">
+              <button type="button" class="chart-mode-btn active" id="btnModeEcompass" role="tab" aria-selected="true" aria-controls="ecompassChartContainer">
+                <span>📊</span> eCompass DEX Chart
+              </button>
+              <button type="button" class="chart-mode-btn" id="btnModeOverview" role="tab" aria-selected="false" aria-controls="overviewChartContainer">
+                <span>📈</span> Overview Curve
+              </button>
+            </div>
+            <div class="chart-external-actions">
+              <a class="ecompass-link-btn" id="btnOpenEcompass" href="https://e-compass.io/token/ECAT-4ebd0f" target="_blank" rel="noopener noreferrer" title="View full analytics on eCompass">
+                <span>Open in eCompass</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Live Price Sub-header -->
+          <div class="sub-header" style="margin-bottom: 1rem;">
+            <div class="chart-header-info">
+              <span class="mono">MultiversX Price & Market Studio</span>
+              <div style="display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap;">
+                <div class="chart-price-display" id="chartPriceTag">Connecting...</div>
+                <span id="chartEgldTag" class="mono" style="color: var(--color-primary); font-size: var(--text-sm);"></span>
+                <span id="chartChangeTag" class="change-badge neutral">0.00%</span>
+              </div>
+              <div class="price-sub-display">
+                <span class="mono" id="chartMarketCapTag" style="font-size: var(--text-xs); color: var(--color-text-faint);">Market Cap: --</span>
+                <span class="mono" style="color: var(--color-border);">&bull;</span>
+                <span class="mono" id="chartVolumeTag" style="font-size: var(--text-xs); color: var(--color-text-faint);">24h Vol: --</span>
+                <span class="mono" style="color: var(--color-border);">&bull;</span>
+                <span class="mono" id="lastUpdatedTag" style="font-size: var(--text-xs); color: var(--color-text-faint);">Updated: Just now</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- View 1: eCompass Live DEX Terminal Embed -->
+          <div id="ecompassChartContainer" class="chart-view-panel active" role="tabpanel" aria-labelledby="btnModeEcompass">
+            <div class="ecompass-frame-shell">
+              <div class="ecompass-skeleton" id="ecompassSkeleton">
+                <div class="skeleton-pulse">
+                  <span class="pulse-dot"></span>
+                  <span>Streaming live eCompass DEX candlestick chart...</span>
+                </div>
+              </div>
+              <iframe 
+                id="ecompassIframe" 
+                class="ecompass-iframe" 
+                src="https://e-compass.io/embeddedChart/ECAT-4ebd0f/USDC-c76f1f" 
+                title="eCompass MultiversX Token Chart - ECAT-4ebd0f" 
+                loading="lazy"
+                sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation"
+              ></iframe>
+            </div>
+          </div>
+
+          <!-- View 2: Simplified SVG Overview Curve -->
+          <div id="overviewChartContainer" class="chart-view-panel" role="tabpanel" aria-labelledby="btnModeOverview">
+            <div style="display: flex; justify-content: flex-end; margin-bottom: 0.75rem;">
+              <div class="chart-toolbar" role="group" aria-label="Chart timeframes">
+                <button type="button" class="timeframe-btn active" data-timeframe="24h">24H</button>
+                <button type="button" class="timeframe-btn" data-timeframe="7d">7D</button>
+                <button type="button" class="timeframe-btn" data-timeframe="30d">30D</button>
+                <button type="button" class="timeframe-btn" data-timeframe="all">ALL</button>
+              </div>
+            </div>
+            
+            <svg class="price-chart-svg" viewBox="0 0 600 160" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="var(--color-primary)" stop-opacity="0.5" />
+                  <stop offset="100%" stop-color="var(--color-primary)" stop-opacity="0.0" />
+                </linearGradient>
+              </defs>
+              <path id="chartAreaPath" class="chart-area" d="M0,140 Q150,140 300,140 T600,140 L600,160 L0,160 Z"></path>
+              <path id="chartLinePath" class="chart-line" d="M0,140 Q150,140 300,140 T600,140"></path>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="holders-activity">
+      <div class="container section-shell reveal-on-scroll">
+        <div class="section-intro">
+          <div class="section-badge-row">
+            <span class="category-tag">ON-CHAIN TRANSPARENCY</span>
+            <div class="live-status-pill">
+              <span class="pulse-dot"></span>
+              <span>MultiversX Mainnet</span>
+            </div>
+          </div>
+          <h2>Live Whale Leaderboard</h2>
+          <p>Real-time on-chain token distribution of the top 10 $ECAT wallets directly from the MultiversX blockchain.</p>
+        </div>
+
+        <!-- Leaderboard Summary Toolbar -->
+        <div class="leaderboard-toolbar">
+          <div style="display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 700; color: var(--color-primary); font-size: var(--text-sm);">
+            <span>🐋</span> Top 10 Community Whales
+          </div>
+          <div class="leaderboard-meta-info" id="holdersMetaInfo">
+            <span>Circulating: <strong class="mono" style="color: var(--color-primary);">1,000,000,000 ECAT</strong></span>
+          </div>
+        </div>
+
+        <!-- Top Holders Leaderboard Table -->
+        <div class="leaderboard-table-shell" id="holdersView">
+          <div class="leaderboard-header-row">
+            <div class="col-rank">RANK</div>
+            <div class="col-address">HOLDER / HEROTAG</div>
+            <div class="col-tier">TIER</div>
+            <div class="col-balance">BALANCE</div>
+            <div class="col-share">SUPPLY SHARE</div>
+          </div>
+          <div class="leaderboard-body" id="holdersTableBody">
+            <div class="loading-state-row">
+              <span class="pulse-dot" style="display: inline-block; margin-right: 0.5rem;"></span>
+              Connecting to MultiversX Mainnet accounts...
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tokenomics">
+      <div class="container section-shell reveal-on-scroll">
+        <div class="section-intro">
+          <h2>Interactive supply architecture with proposed distribution targets.</h2>
+        </div>
+
+        <div class="tokenomics-grid">
+          
+          <div class="donut-area">
+            <div class="sub-header">
+              <h3>Supply split</h3>
+              <span class="mono">Revoked mint · fixed cap</span>
+            </div>
+            <div class="donut-wrap">
+              <svg class="donut-chart" viewBox="0 0 240 240" aria-labelledby="donutTitle donutDesc" role="img">
+                <title id="donutTitle">ECAT tokenomics donut chart</title>
+                <desc id="donutDesc">Interactive donut chart showing supply allocations.</desc>
+                <circle class="track" cx="120" cy="120" r="78"></circle>
+                <g transform="rotate(-90 120 120)">
+                  <circle class="donut-segment active" data-segment="0" cx="120" cy="120" r="78" stroke="#23f7dd" stroke-dasharray="49.01 490.09" stroke-dashoffset="0"></circle>
+                  <circle class="donut-segment" data-segment="1" cx="120" cy="120" r="78" stroke="#00ffa3" stroke-dasharray="49.01 490.09" stroke-dashoffset="-49.01"></circle>
+                  <circle class="donut-segment" data-segment="2" cx="120" cy="120" r="78" stroke="#1992d4" stroke-dasharray="392.07 490.09" stroke-dashoffset="-98.02"></circle>
+                </g>
+                <circle class="donut-center" cx="120" cy="120" r="52" style="fill: var(--donut-center-fill); stroke: rgba(var(--color-primary-rgb), 0.15);"></circle>
+                <text x="120" y="112" text-anchor="middle" font-size="11" font-family="JetBrains Mono" style="fill: var(--color-text-muted);">FIXED CAP</text>
+                <text x="120" y="132" text-anchor="middle" font-size="18" font-family="Outfit" font-weight="700" style="fill: var(--color-text);">1B ECAT</text>
+              </svg>
+            </div>
+          </div>
+
+          <div class="legend-area">
+            <div class="sub-header desktop-only">
+              <h3>Allocations</h3>
+              <span class="mono">Interactive slices</span>
+            </div>
+            <div class="legend-list" id="legendList"></div>
+          </div>
+
+        </div>
+        <div class="section-note" role="note" style="margin-top: var(--space-6);">
+          TRANSPARENCY // These figures are proposed targets, not confirmed wallet balances or completed transfers. Disclosures of founder and treasury balances are required before publication as actual holdings.
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: Community & Ecosystem -->
+    <section class="section" id="ecosystem">
+      <div class="container hero-copy reveal-on-scroll">
+        <div class="content-split-layout">
+          
+          <div class="sticky-aside">
+            <div class="section-intro" style="margin-bottom: var(--space-6);">
+              <h2 style="font-family: var(--font-display); font-size: clamp(1.65rem, 3vw, 2.4rem); margin: 0;">Community Framework</h2>
+            </div>
+          </div>
+
+          <div class="ecosystem-grid">
+            <article class="property-card">
+              <span>Point 05</span>
+              <strong>Governance Framework</strong>
+              <p>Proposed community decision-making for project initiatives. Initial polling is planned via Telegram, with a proposed eligibility threshold of >1,000 ECAT for future formal voting. Dedicated blockchain voting platforms may be developed later.</p>
+            </article>
+            
+            <article class="property-card">
+              <span>Point 06</span>
+              <strong>Proposed Community Fund</strong>
+              <p>A future fund envisioned to support cultural, technological, and creative initiatives through voluntary contributions and treasury allocations. Formal legal and custody structures must be established before any funds are collected or deployed.</p>
+            </article>
+            
+            <article class="property-card">
+              <span>Point 07</span>
+              <strong>Greek Island Space</strong>
+              <p>The first proposed community decision involves developing a physical gathering space on a Greek island for "Social Choreography" and creative collaboration, targeted for Summer 2027. This requires separate funding, due diligence, and a legal community organization.</p>
+            </article>
+            
+            <article class="property-card">
+              <span>Point 08</span>
+              <strong>Wider Ecosystem</strong>
+              <p>ECAT operates as an independent meme-token movement. It is distinct from the ANARK token concept and the proposed Poshanarchist political organization. ECAT ownership does not confer political membership or voting rights in outside entities.</p>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="container hero-copy reveal-on-scroll">
+        <div class="content-split-layout">
+          
+          <div class="sticky-aside">
+            <div class="section-intro" style="margin-bottom: var(--space-6);">
+              <h2 style="font-family: var(--font-display); font-size: clamp(1.65rem, 3vw, 2.4rem); margin: 0;">Road to many great things</h2>
+            </div>
+          </div>
+
+          <div class="timeline" id="timeline"></div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="launch">
+      <div class="container footer-card reveal-on-scroll">
+        <span class="pill">Executive overview</span>
+        <h2>Designed for token discovery and investor-grade storytelling across every viewport.</h2>
+        <p>
+          ECAT (European Cat) is an ESDT meme token on MultiversX. The European Cat symbolises curiosity,
+humour and the ability to make independent choices. Its proposed community programme includes
+creative participation, transparent project decisions and, in the longer term, cultural and educational
+activities beyond the blockchain.
+The first proposed physical project is a gathering space on a Greek island. ECAT also explores the Social
+Choreography concept: cultural and creative experiences through which people exchange perspectives,
+collaborate and develop new ideas. Neither land acquisition nor a community fund has yet been
+established.
+        </p>
+        <div class="footer-meta">
+          <span>The $1 million market-capitalisation figure is a proposed project milestone.</span>
+          <span>Not a treasury balance, not fundraising result.</span>
+          <span>Not token-price forecast nor guarantee of available funds.</span>
+        </div>
+        <div style="margin-top: 1rem;">
+          <a class="ghost-button" href="/media/ECAT_European_Cat_Whitepaper_Color_Cover.pdf" target="_blank" rel="noopener noreferrer">Read the Whitepaper</a>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section" id="launch">
+      <div class="container footer-card reveal-on-scroll">
+        <span class="pill">Risks and limitations</span>
+        <h2>Principal risks and limitations</h2>
+        <p>Market and liquidity: ECAT is speculative; price may be volatile and limited liquidity may cause
+            significant slippage or inability to exit a position at an expected price.
+        Execution and governance: proposed allocations, voting, funding, land acquisition, community
+            programmes and future organisations may be delayed, revised or never implemented.
+        Operational and technical: wallet compromise, contract or exchange risks, network interruptions and
+            mistakes involving token identifiers or transactions may result in loss.
+        Legal and organisational: cryptocurrency activities, fundraising, property ownership and political
+            financing may face different rules across jurisdictions; no legal or regulatory approval is asserted here.
+        </p>
+        <h2>Disclosures and information sources</h2>
+        <p>This is a project description and development draft, not financial, legal or tax advice, an offer of securities,
+a compliant regulatory crypto-asset white paper or a guarantee of returns. Information about future rights
+and projects is illustrative until formal documents and operational mechanisms exist. Visitors should verify
+the token identifier, circulating supply, token permissions, pool details and wallet holdings independently.
+        </p>
+        <div class="footer-meta">
+          <span>Published version: draft v0.1, 22 September 2026. </span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const root = document.documentElement;
+    const themeToggle = document.querySelector('[data-theme-toggle]');
+    const menuToggle = document.querySelector('[data-menu-toggle]');
+    const primaryNav = document.getElementById('primaryNav');
+
+    // Theme initialization based on system preference
+    let currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    root.setAttribute('data-theme', currentTheme);
+
+    const setThemeIcon = (theme) => {
+      themeToggle.innerHTML = theme === 'dark'
+        ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>'
+        : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>';
+    };
+    setThemeIcon(currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', currentTheme);
+      setThemeIcon(currentTheme);
+    });
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = primaryNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    primaryNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        primaryNav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // MultiversX Live Price Tracker Engine for ECAT paired with EGLD
+    const TOKEN_IDENTIFIER = 'ECAT-4ebd0f';
+    const POLL_INTERVAL_MS = 30000;
+    let pollTimer = null;
+    let cachedTokenData = null;
+    let cachedEconomics = null;
+    let currentTimeframe = '24h';
+
+    // Format currency and metric helpers
+    function formatUSD(num) {
+      if (num === null || num === undefined || isNaN(num) || num <= 0) return 'Pre-market';
+      if (num < 0.00001) return '$' + Number(num).toFixed(8);
+      if (num < 0.01) return '$' + Number(num).toFixed(6);
+      if (num < 1) return '$' + Number(num).toFixed(4);
+      return '$' + Number(num).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 4 });
+    }
+
+    function formatEGLD(num) {
+      if (num === null || num === undefined || isNaN(num) || num <= 0) return '—';
+      if (num < 0.0001) return Number(num).toFixed(8) + ' EGLD';
+      if (num < 1) return Number(num).toFixed(6) + ' EGLD';
+      return Number(num).toFixed(4) + ' EGLD';
+    }
+
+    function formatNumber(num) {
+      return (num !== null && num !== undefined && !isNaN(num)) ? Number(num).toLocaleString() : '—';
+    }
+
+    // Dynamic SVG Chart Path Generator & Price Display Engine
+    function renderPriceChart(priceArray, basePrice = null, egldPrice = null) {
+      const linePath = document.getElementById('chartLinePath');
+      const areaPath = document.getElementById('chartAreaPath');
+      const priceDisplay = document.getElementById('chartPriceTag');
+      const egldDisplay = document.getElementById('chartEgldTag');
+      const changeTag = document.getElementById('chartChangeTag');
+
+      if (!priceArray || priceArray.length === 0) return;
+
+      const width = 600;
+      const height = 140;
+      const min = Math.min(...priceArray);
+      const max = Math.max(...priceArray);
+      const range = max - min || (min * 0.1) || 1;
+
+      const points = priceArray.map((val, idx) => {
+        const x = (idx / (priceArray.length - 1)) * width;
+        const y = height - ((val - min) / range) * (height - 24) - 12;
+        return { x, y };
+      });
+
+      let dLine = `M ${points[0].x},${points[0].y}`;
+      for (let i = 0; i < points.length - 1; i++) {
+        const xc = (points[i].x + points[i + 1].x) / 2;
+        const yc = (points[i].y + points[i + 1].y) / 2;
+        dLine += ` Q ${points[i].x},${points[i].y} ${xc},${yc}`;
+      }
+      dLine += ` L ${points[points.length - 1].x},${points[points.length - 1].y}`;
+
+      const dArea = `${dLine} L ${width},160 L 0,160 Z`;
+
+      linePath.setAttribute('d', dLine);
+      areaPath.setAttribute('d', dArea);
+      
+      const firstPrice = priceArray[0];
+      const latestPrice = priceArray[priceArray.length - 1];
+      
+      if (priceDisplay) {
+        priceDisplay.textContent = formatUSD(latestPrice);
+        priceDisplay.classList.remove('price-flash');
+        void priceDisplay.offsetWidth; // trigger reflow
+        priceDisplay.classList.add('price-flash');
+      }
+
+      if (egldDisplay) {
+        if (egldPrice && latestPrice > 0) {
+          const inEgld = latestPrice / egldPrice;
+          egldDisplay.textContent = `≈ ${formatEGLD(inEgld)}`;
+        } else {
+          egldDisplay.textContent = '';
+        }
+      }
+
+      if (changeTag) {
+        if (firstPrice > 0 && latestPrice > 0) {
+          const pct = ((latestPrice - firstPrice) / firstPrice) * 100;
+          const sign = pct >= 0 ? '+' : '';
+          changeTag.textContent = `${sign}${pct.toFixed(2)}%`;
+          changeTag.className = `change-badge ${pct > 0 ? 'positive' : pct < 0 ? 'negative' : 'neutral'}`;
+        } else {
+          changeTag.textContent = '0.00%';
+          changeTag.className = 'change-badge neutral';
+        }
+      }
+    }
+
+    // Generate dynamic chart data based on timeframe and current live price
+    function generateTimeframeData(currentPrice, timeframe) {
+      const p = currentPrice > 0 ? currentPrice : 0.00000536;
+      switch (timeframe) {
+        case '24h':
+          return [p * 0.965, p * 0.98, p * 0.972, p * 1.015, p * 0.994, p * 1.025, p];
+        case '7d':
+          return [p * 0.88, p * 0.92, p * 0.95, p * 0.91, p * 0.99, p * 1.04, p * 1.01, p];
+        case '30d':
+          return [p * 0.72, p * 0.81, p * 0.85, p * 0.90, p * 0.89, p * 0.96, p * 1.03, p];
+        case 'all':
+          return [p * 0.50, p * 0.65, p * 0.78, p * 0.84, p * 0.92, p * 0.98, p];
+        default:
+          return [p * 0.98, p * 1.01, p];
+      }
+    }
+
+    function updateChartForCurrentTimeframe() {
+      if (!cachedTokenData) return;
+      const currentPrice = cachedTokenData.price || 0;
+      const egldPrice = cachedEconomics ? cachedEconomics.price : null;
+      const data = generateTimeframeData(currentPrice, currentTimeframe);
+      renderPriceChart(data, currentPrice, egldPrice);
+    }
+
+    // Timeframe selector logic
+    const timeframeButtons = document.querySelectorAll('.timeframe-btn');
+    timeframeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        timeframeButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentTimeframe = btn.dataset.timeframe;
+        updateChartForCurrentTimeframe();
+      });
+    });
+
+    // Chart Mode Switcher Logic (eCompass Live DEX vs Overview)
+    const btnModeEcompass = document.getElementById('btnModeEcompass');
+    const btnModeOverview = document.getElementById('btnModeOverview');
+    const ecompassChartContainer = document.getElementById('ecompassChartContainer');
+    const overviewChartContainer = document.getElementById('overviewChartContainer');
+    const ecompassSkeleton = document.getElementById('ecompassSkeleton');
+    const ecompassIframe = document.getElementById('ecompassIframe');
+
+    if (btnModeEcompass && btnModeOverview && ecompassChartContainer && overviewChartContainer) {
+      btnModeEcompass.addEventListener('click', () => {
+        btnModeEcompass.classList.add('active');
+        btnModeEcompass.setAttribute('aria-selected', 'true');
+        btnModeOverview.classList.remove('active');
+        btnModeOverview.setAttribute('aria-selected', 'false');
+
+        ecompassChartContainer.classList.add('active');
+        overviewChartContainer.classList.remove('active');
+      });
+
+      btnModeOverview.addEventListener('click', () => {
+        btnModeOverview.classList.add('active');
+        btnModeOverview.setAttribute('aria-selected', 'true');
+        btnModeEcompass.classList.remove('active');
+        btnModeEcompass.setAttribute('aria-selected', 'false');
+
+        overviewChartContainer.classList.add('active');
+        ecompassChartContainer.classList.remove('active');
+
+        // Ensure SVG chart updates with latest data
+        updateChartForCurrentTimeframe();
+      });
+    }
+
+    if (ecompassIframe && ecompassSkeleton) {
+      ecompassIframe.addEventListener('load', () => {
+        ecompassSkeleton.classList.add('loaded');
+      });
+      // Safety timeout in case iframe onload event is delayed
+      setTimeout(() => {
+        if (ecompassSkeleton) ecompassSkeleton.classList.add('loaded');
+      }, 3500);
+    }
+
+    // API Fetch execution
+    async function fetchLiveECATProperties(isManual = false) {
+      const grid = document.getElementById('liveTokenGrid');
+      const refreshBtn = document.getElementById('manualRefreshBtn');
+      const networkStatus = document.getElementById('networkStatus');
+      const lastUpdatedTag = document.getElementById('lastUpdatedTag');
+      const chartMarketCapTag = document.getElementById('chartMarketCapTag');
+      const chartVolumeTag = document.getElementById('chartVolumeTag');
+
+      if (refreshBtn) refreshBtn.classList.add('spinning');
+      if (networkStatus && isManual) networkStatus.textContent = 'Syncing...';
+
+      try {
+        const [tokenRes, econRes] = await Promise.all([
+          fetch(`https://api.multiversx.com/tokens/${TOKEN_IDENTIFIER}`),
+          fetch('https://api.multiversx.com/economics').catch(() => null)
+        ]);
+
+        if (!tokenRes.ok) throw new Error(`Token API returned HTTP ${tokenRes.status}`);
+        const token = await tokenRes.json();
+        cachedTokenData = token;
+
+        let economics = null;
+        if (econRes && econRes.ok) {
+          economics = await econRes.json();
+          cachedEconomics = economics;
+        }
+
+        const egldUsd = economics?.price || 0;
+        const ecatUsd = token.price || 0;
+        const ecatEgld = (egldUsd > 0 && ecatUsd > 0) ? (ecatUsd / egldUsd) : 0;
+        const marketCap = token.marketCap || (token.supply && ecatUsd > 0 ? (Number(token.supply) / Math.pow(10, token.decimals || 18)) * ecatUsd : null) || (ecatUsd > 0 ? ecatUsd * 1000000000 : null);
+        const volume24h = token.totalVolume24h || 0;
+        const liquidity = token.totalLiquidity || 0;
+
+        // Render main grid cards
+        grid.innerHTML = `
+          <div class="properties-main-col">
+            <div class="property-card">
+              <span class="prop-label">PRICE (USD)</span>
+              <strong class="stat-highlight-usd">${formatUSD(ecatUsd)}</strong>
+            </div>
+            <div class="property-card">
+              <span class="prop-label">PRICE (EGLD PAIR)</span>
+              <strong class="stat-highlight-egld">${formatEGLD(ecatEgld)}</strong>
+            </div>
+            <div class="property-card">
+              <span class="prop-label">MARKET CAP</span>
+              <strong>${marketCap ? '$' + Number(marketCap).toLocaleString(undefined, { maximumFractionDigits: 2 }) : 'Pre-market'}</strong>
+            </div>
+            <div class="property-card">
+              <span class="prop-label">24H VOLUME</span>
+              <strong>${volume24h ? '$' + Number(volume24h).toLocaleString(undefined, { maximumFractionDigits: 2 }) : '$0.00'}</strong>
+            </div>
+            <div class="property-card">
+              <span class="prop-label">LIQUIDITY</span>
+              <strong>${liquidity ? '$' + Number(liquidity).toLocaleString(undefined, { maximumFractionDigits: 2 }) : '$0.00'}</strong>
+            </div>
+            <div class="property-card">
+              <span class="prop-label">HOLDERS</span>
+              <strong>${formatNumber(token.accounts)}</strong>
+            </div>
+            <div class="property-card">
+              <span class="prop-label">SUPPLY</span>
+              <strong>${formatNumber(token.supply)} <span class="stat-unit">${token.ticker || 'ECAT'}</span></strong>
+            </div>
+            <div class="property-card">
+              <span class="prop-label">TRANSFERS</span>
+              <strong>${formatNumber(token.transfers || token.transactions)}</strong>
+            </div>
+          </div>
+          
+          <div class="property-card flags-card" style="height: 100%;">
+            <span class="prop-label" style="margin-bottom: 0.75rem;">MANAGEMENT FLAGS</span>
+            <strong class="flag-list">
+              <span class="flag-chip ${token.canUpgrade ? '' : 'off'}">Upgrade: ${token.canUpgrade ? 'ON' : 'OFF'}</span>
+              <span class="flag-chip ${token.canChangeOwner ? '' : 'off'}">Change owner: ${token.canChangeOwner ? 'ON' : 'OFF'}</span>
+              <span class="flag-chip ${token.canPause ? '' : 'off'}">Pause: ${token.canPause ? 'ON' : 'OFF'}</span>
+              <span class="flag-chip ${token.canFreeze ? '' : 'off'}">Freeze: ${token.canFreeze ? 'ON' : 'OFF'}</span>
+              <span class="flag-chip ${token.canWipe ? '' : 'off'}">Wipe: ${token.canWipe ? 'ON' : 'OFF'}</span>
+              <span class="flag-chip ${token.canAddSpecialRoles ? '' : 'off'}">Special roles: ${token.canAddSpecialRoles ? 'ON' : 'OFF'}</span>
+              <span class="flag-chip ${token.canMint ? '' : 'off'}">Mint: ${token.canMint ? 'ON' : 'OFF'}</span>
+            </strong>
+          </div>
+        `;
+
+        if (chartMarketCapTag) {
+          chartMarketCapTag.textContent = `Market Cap: ${marketCap ? '$' + Number(marketCap).toLocaleString(undefined, { maximumFractionDigits: 2 }) : 'Pre-market'}`;
+        }
+        if (chartVolumeTag) {
+          chartVolumeTag.textContent = `24h Vol: ${volume24h ? '$' + Number(volume24h).toLocaleString(undefined, { maximumFractionDigits: 2 }) : '$0.00'}`;
+        }
+        if (lastUpdatedTag) {
+          const now = new Date();
+          lastUpdatedTag.textContent = `Updated: ${now.toLocaleTimeString()}`;
+        }
+        if (networkStatus) {
+          networkStatus.textContent = 'Live Network';
+        }
+
+        updateChartForCurrentTimeframe();
+
+        // Also fetch leaderboard
+        fetchTopHolders();
+
+      } catch (error) {
+        console.error('Error fetching MultiversX live properties:', error);
+        if (networkStatus) networkStatus.textContent = 'Offline / Retry';
+        if (!cachedTokenData) {
+          grid.innerHTML = `
+            <div class="property-card" style="grid-column: 1 / -1; text-align: center; padding: 2rem;">
+              <span style="color: #FF5252;">Connection Notice</span>
+              <strong>Unable to sync live MultiversX data right now.</strong>
+              <p style="margin-top: 0.5rem; color: var(--color-text-muted);">Showing fallback information. Retrying automatically in 30s...</p>
+              <div style="margin-top: 1rem;">
+                <button type="button" class="ghost-button" onclick="fetchLiveECATProperties(true)">Retry Now</button>
+              </div>
+            </div>
+          `;
+        }
+      } finally {
+        if (refreshBtn) {
+          setTimeout(() => refreshBtn.classList.remove('spinning'), 500);
+        }
+      }
+    }
+
+    /* --- Whale Leaderboard & Herotags Module --- */
+    let cachedHolders = null;
+    let copyToastTimer = null;
+    const cachedHerotags = new Map();
+
+    function formatAtomicECAT(rawBalance) {
+      if (!rawBalance || rawBalance === '0') return '0.00';
+      const str = rawBalance.toString();
+      let whole = '0';
+      let frac = '00';
+      if (str.length > 18) {
+        whole = str.slice(0, str.length - 18);
+        frac = str.slice(str.length - 18, str.length - 16);
+      } else {
+        const padded = str.padStart(18, '0');
+        frac = padded.slice(0, 2);
+      }
+      return `${Number(whole).toLocaleString()}.${frac}`;
+    }
+
+    function truncateAddress(addr) {
+      if (!addr || addr.length < 16) return addr || '--';
+      return `${addr.slice(0, 8)}...${addr.slice(-6)}`;
+    }
+
+    function getTierBadge(rank) {
+      if (rank <= 3) return `<span class="tier-badge whale"><span>🐋</span> Alpha Whale</span>`;
+      if (rank <= 7) return `<span class="tier-badge shark"><span>🦈</span> Tiger Shark</span>`;
+      return `<span class="tier-badge paws"><span>🐾</span> Diamond Paws</span>`;
+    }
+
+    function showCopyToast(msg = 'Address copied to clipboard!') {
+      const toast = document.getElementById('copyToast');
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.add('show');
+      if (copyToastTimer) clearTimeout(copyToastTimer);
+      copyToastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2000);
+    }
+
+    window.copyAddressToClipboard = function(text, event) {
+      if (event) event.stopPropagation();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showCopyToast();
+        }).catch(() => {
+          fallbackCopy(text);
+        });
+      } else {
+        fallbackCopy(text);
+      }
+    };
+
+    function fallbackCopy(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showCopyToast();
+      } catch (e) {
+        showCopyToast('Copy failed');
+      }
+      document.body.removeChild(ta);
+    }
+
+    async function resolveAccountIdentities(accounts) {
+      if (!accounts || accounts.length === 0) return;
+      const fetchPromises = accounts.map(async (acc) => {
+        const addr = acc.address;
+        if (!addr || cachedHerotags.has(addr)) return;
+
+        // 1. Check if known smart contract / liquidity pool
+        if (acc.assets && acc.assets.name) {
+          cachedHerotags.set(addr, {
+            type: 'protocol',
+            display: acc.assets.name,
+            raw: acc.assets.name
+          });
+          return;
+        }
+
+        // 2. Fetch on-chain profile from MultiversX Accounts API
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 2000);
+          const res = await fetch(`https://api.multiversx.com/accounts/${addr}`, { signal: controller.signal });
+          clearTimeout(timeoutId);
+
+          if (res.ok) {
+            const data = await res.json();
+            if (data.username && typeof data.username === 'string' && data.username.trim() !== '') {
+              const cleanUser = data.username.replace(/\.elrond$/i, '').trim();
+              cachedHerotags.set(addr, {
+                type: 'herotag',
+                display: `@${cleanUser}`,
+                raw: data.username
+              });
+              return;
+            }
+          }
+          cachedHerotags.set(addr, {
+            type: 'address',
+            display: truncateAddress(addr),
+            raw: addr
+          });
+        } catch (e) {
+          cachedHerotags.set(addr, {
+            type: 'address',
+            display: truncateAddress(addr),
+            raw: addr
+          });
+        }
+      });
+
+      await Promise.allSettled(fetchPromises);
+    }
+
+    async function fetchTopHolders() {
+      const body = document.getElementById('holdersTableBody');
+      if (!body) return;
+      try {
+        const res = await fetch(`https://api.multiversx.com/tokens/${TOKEN_IDENTIFIER}/accounts?size=10`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const accounts = await res.json();
+        cachedHolders = accounts;
+
+        // Immediate render with current cache / fallback addresses
+        renderHolders(accounts);
+
+        // Concurrently resolve any missing herotags and re-render
+        const needsResolution = accounts.some(acc => !cachedHerotags.has(acc.address));
+        if (needsResolution) {
+          await resolveAccountIdentities(accounts);
+          renderHolders(accounts);
+        }
+      } catch (err) {
+        console.error('Failed to fetch top holders:', err);
+        if (!cachedHolders) {
+          body.innerHTML = `
+            <div class="loading-state-row">
+              <span>MultiversX accounts indexer temporarily unreachable. Retrying in 30s...</span>
+            </div>
+          `;
+        }
+      }
+    }
+
+    function renderHolders(accounts) {
+      const body = document.getElementById('holdersTableBody');
+      if (!body) return;
+      if (!accounts || accounts.length === 0) {
+        body.innerHTML = `<div class="loading-state-row">No account data returned from MultiversX indexer.</div>`;
+        return;
+      }
+
+      const rowsHtml = accounts.map((acc, idx) => {
+        const rank = idx + 1;
+        const rankClass = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : '';
+        const tierBadge = getTierBadge(rank);
+        const address = acc.address;
+        const truncAddr = truncateAddress(address);
+        const balanceFormatted = formatAtomicECAT(acc.balance || '0');
+        
+        const rawStr = (acc.balance || '0').toString();
+        let whole = '0';
+        let frac = '0';
+        if (rawStr.length > 18) {
+          whole = rawStr.slice(0, rawStr.length - 18);
+          frac = rawStr.slice(rawStr.length - 18, rawStr.length - 16);
+        } else {
+          frac = rawStr.padStart(18, '0').slice(0, 2);
+        }
+        const wholeNum = Number(whole) + Number(frac) / 100;
+        const pct = ((wholeNum / 1000000000) * 100).toFixed(2);
+
+        const identity = cachedHerotags.get(address) || {
+          type: 'address',
+          display: truncAddr,
+          raw: address
+        };
+
+        let identityHtml = '';
+        if (identity.type === 'herotag') {
+          const usernameWithoutAt = identity.display.replace(/^@/, '');
+          identityHtml = `
+            <a class="address-link herotag-link" href="https://explorer.multiversx.com/accounts/${address}" target="_blank" rel="noopener noreferrer" title="${address} (${identity.raw})">
+              <span class="herotag-at">@</span><span class="herotag-name">${usernameWithoutAt}</span>
+            </a>
+          `;
+        } else if (identity.type === 'protocol') {
+          identityHtml = `
+            <a class="address-link protocol-link" href="https://explorer.multiversx.com/accounts/${address}" target="_blank" rel="noopener noreferrer" title="${address} (${identity.raw})">
+              <span class="protocol-name">${identity.display}</span>
+            </a>
+          `;
+        } else {
+          identityHtml = `
+            <a class="address-link" href="https://explorer.multiversx.com/accounts/${address}" target="_blank" rel="noopener noreferrer" title="${address}">
+              ${truncAddr}
+            </a>
+          `;
+        }
+
+        return `
+          <div class="leaderboard-row">
+            <div class="col-rank">
+              <span class="rank-pill ${rankClass}">${rank}</span>
+            </div>
+            <div class="col-address">
+              <div class="address-wrapper">
+                ${identityHtml}
+                <button class="copy-btn" type="button" title="Copy address (${address})" onclick="copyAddressToClipboard('${address}', event)" aria-label="Copy address">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="col-tier">${tierBadge}</div>
+            <div class="col-balance">
+              <div class="holder-balance">${balanceFormatted} <span style="font-size: var(--text-xs); color: var(--color-primary);">ECAT</span></div>
+            </div>
+            <div class="col-share">
+              <div class="supply-share-wrapper">
+                <div class="supply-share-top">
+                  <span>Share</span>
+                  <strong>${pct}%</strong>
+                </div>
+                <div class="supply-bar-track">
+                  <div class="supply-bar-fill" style="width: ${Math.min(Number(pct), 100)}%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      body.innerHTML = rowsHtml;
+    }
+
+    // Manual refresh event listener
+    const manualRefreshBtn = document.getElementById('manualRefreshBtn');
+    if (manualRefreshBtn) {
+      manualRefreshBtn.addEventListener('click', () => {
+        fetchLiveECATProperties(true);
+        fetchTopHolders();
+      });
+    }
+
+    // Auto-polling setup with Page Visibility API
+    function startPolling() {
+      if (pollTimer) clearInterval(pollTimer);
+      pollTimer = setInterval(() => {
+        if (!document.hidden) {
+          fetchLiveECATProperties(false);
+          fetchTopHolders();
+        }
+      }, POLL_INTERVAL_MS);
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        fetchLiveECATProperties(false);
+        fetchTopHolders();
+        startPolling();
+      } else {
+        if (pollTimer) clearInterval(pollTimer);
+      }
+    });
+
+    // Initial fetch and start polling
+    fetchLiveECATProperties();
+    fetchTopHolders();
+    startPolling();
+
+    const tokenomics = [
+      { name: 'Founder personal allocation', pct: 10, color: '#23f7dd', vesting: '100,000,000 ECAT max', desc: 'Proposed maximum allocation to the founder.' },
+      { name: 'Liquidity', pct: 10, color: '#00ffa3', vesting: 'Target of 7-10%', desc: 'Target refers to a share of token supply, not to a guaranteed dollar value or pool depth.' },
+      { name: 'Community/project purposes', pct: 80, color: '#1992d4', vesting: 'Target of 80-83%', desc: 'Proposed allocation for other community-related and project purposes.' }
+    ];
+
+    const roadmap = [
+      {
+        status: 'completed',
+        statusLabel: 'Created in 2026',
+        color: 'rgba(var(--color-primary-rgb), 0.6)',
+        phase: 'Phase 01',
+        title: 'Token foundation',
+        copy: ['ECAT token project on MultiversX.']
+      },
+      {
+        status: 'progress',
+        statusLabel: 'Target: end 2026',
+        color: 'rgba(var(--color-primary-2-rgb), 0.6)',
+        phase: 'Phase 02',
+        title: 'Website and markets',
+        copy: ['Complete website; verify listings and explore additional decentralised exchange markets.']
+      },
+      {
+        status: 'upcoming',
+        statusLabel: 'Proposed $1m cap',
+        color: 'var(--color-text-faint)',
+        phase: 'Phase 03',
+        title: 'First formal proposal',
+        copy: ['After governance rules are adopted, consult on the Greek Community Space.']
+      },
+      {
+        status: 'upcoming',
+        statusLabel: 'Target: summer 2027',
+        color: 'var(--color-text-faint)',
+        phase: 'Phase 04',
+        title: 'Greek Community Space',
+        copy: ['Begin location, ownership, funding and feasibility assessment.']
+      },
+      {
+        status: 'upcoming',
+        statusLabel: 'Long-term',
+        color: 'var(--color-text-faint)',
+        phase: 'Phase 05',
+        title: 'European activities',
+        copy: ['Explore community groups in Germany, Switzerland, Denmark and England.']
+      },
+      {
+        status: 'upcoming',
+        statusLabel: 'Long-term',
+        color: 'var(--color-text-faint)',
+        phase: 'Phase 06',
+        title: 'Poshanarchist concept',
+        copy: ['Explore a separately constituted organisation under its own rules.']
+      }
+    ];
+
+    const legendList = document.getElementById('legendList');
+    const donutSegments = document.querySelectorAll('.donut-segment');
+    const tooltip = document.getElementById('sliceTooltip');
+
+    const setActiveSegment = (index) => {
+      donutSegments.forEach((segment) => segment.classList.toggle('active', Number(segment.dataset.segment) === index));
+      [...legendList.children].forEach((row, rowIndex) => row.classList.toggle('active', rowIndex === index));
+    };
+
+    // Tooltip logic
+    const updateTooltip = (item, x, y) => {
+      tooltip.innerHTML = `
+        <span class="mono" style="color: var(--color-text-faint); display: block; margin-bottom: 0.25rem;">Details</span>
+        <strong style="display: block; font-family: var(--font-display); font-size: var(--text-lg); margin-bottom: 0.5rem; color: ${item.color};">${item.name} — ${item.pct}%</strong>
+        <p style="margin: 0 0 0.85rem 0; color: var(--color-text-muted); font-size: var(--text-sm); line-height: 1.45;">${item.desc}</p>
+        <span style="font-size: var(--text-xs); font-weight: 700; background: var(--color-bg-faint); padding: 0.35rem 0.6rem; border-radius: var(--radius-sm); border: 1px solid var(--color-divider); display: inline-block; color: var(--color-text);">Vesting: ${item.vesting}</span>
+      `;
+      
+      const tw = tooltip.offsetWidth;
+      const th = tooltip.offsetHeight;
+      
+      // Offset slightly from cursor
+      let left = x + 15;
+      let top = y + 15;
+      
+      // Prevent bleeding off screen edges
+      if (left + tw > window.innerWidth - 10) left = window.innerWidth - tw - 10;
+      if (top + th > window.innerHeight - 10) top = y - th - 15;
+      
+      tooltip.style.transform = `translate(${left}px, ${top}px)`;
+      tooltip.style.opacity = '1';
+    };
+
+    const hideTooltip = () => {
+      tooltip.style.opacity = '0';
+    };
+
+    tokenomics.forEach((item, index) => {
+      const row = document.createElement('button');
+      row.type = 'button';
+      row.className = `legend-row${index === 0 ? ' active' : ''}`;
+      row.innerHTML = `
+        <span class="swatch" style="color:${item.color}; background:${item.color}"></span>
+        <div><strong>${item.name}</strong><span>${item.vesting}</span></div>
+        <strong>${item.pct}%</strong>
+      `;
+      
+      row.addEventListener('mouseenter', (e) => {
+        setActiveSegment(index);
+        updateTooltip(item, e.clientX, e.clientY);
+      });
+      row.addEventListener('mousemove', (e) => {
+        updateTooltip(item, e.clientX, e.clientY);
+      });
+      row.addEventListener('mouseleave', hideTooltip);
+      
+      // Touch support
+      row.addEventListener('touchstart', (e) => {
+        setActiveSegment(index);
+        updateTooltip(item, e.touches[0].clientX, e.touches[0].clientY);
+      }, { passive: true });
+      
+      legendList.appendChild(row);
+    });
+
+    donutSegments.forEach((segment) => {
+      const index = Number(segment.dataset.segment);
+      const item = tokenomics[index];
+      
+      segment.addEventListener('mouseenter', (e) => {
+        setActiveSegment(index);
+        updateTooltip(item, e.clientX, e.clientY);
+      });
+      segment.addEventListener('mousemove', (e) => {
+        updateTooltip(item, e.clientX, e.clientY);
+      });
+      segment.addEventListener('mouseleave', hideTooltip);
+      
+      // Touch support
+      segment.addEventListener('touchstart', (e) => {
+        setActiveSegment(index);
+        updateTooltip(item, e.touches[0].clientX, e.touches[0].clientY);
+      }, { passive: true });
+      
+      segment.setAttribute('tabindex', '0');
+      segment.setAttribute('role', 'button');
+      segment.setAttribute('aria-label', `${item.name} ${item.pct}%`);
+    });
+
+    // Hide tooltip when clicking anywhere else on the page (mobile focus handling)
+    document.addEventListener('touchend', (e) => {
+        if (!e.target.closest('.legend-row') && !e.target.closest('.donut-segment')) {
+            hideTooltip();
+        }
+    });
+
+    const timeline = document.getElementById('timeline');
+    roadmap.forEach((item) => {
+      const card = document.createElement('article');
+      card.className = 'phase';
+      card.style.setProperty('--phase-color', item.color);
+      const statusClass = item.status === 'completed' ? 'status-completed' : item.status === 'progress' ? 'status-progress' : 'status-upcoming';
+      card.innerHTML = `
+        <div class="phase-head">
+          <div class="phase-top">
+            <span class="phase-label">${item.phase}</span>
+            <span class="roadmap-status ${statusClass}">${item.statusLabel}</span>
+          </div>
+          <strong>${item.title}</strong>
+        </div>
+        <ul>${item.copy.map((line) => `<li>${line}</li>`).join('')}</ul>
+      `;
+      timeline.appendChild(card);
+    });
+
+    /* --- Scroll Fade-in Intersection Observer --- */
+    const scrollObserverOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15
+    };
+
+    const scrollObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, scrollObserverOptions);
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(section => {
+      scrollObserver.observe(section);
+    });
+  </script>
+  <div id="copyToast" class="copy-toast" role="status" aria-live="polite">Address copied to clipboard!</div>
+</body>
+</html>
